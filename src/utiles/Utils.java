@@ -34,6 +34,7 @@ import com.itextpdf.layout.element.Paragraph;
 
 import clasesXML.ListXml;
 import clasesXML.RecordXml;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.awt.AWTException;
 import java.awt.Dimension;
