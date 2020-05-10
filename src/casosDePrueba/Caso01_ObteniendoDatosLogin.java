@@ -1,8 +1,6 @@
 package casosDePrueba;
 
-import java.awt.List;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +14,6 @@ public class Caso01_ObteniendoDatosLogin {
 	//Declarando variables GLOBALES
 	private static final String casoDePrueba = "Caso01_ObteniendoDatosLogin";
 	private static ArrayList<String> pasos = new ArrayList<String>();
-	private static WebDriver driverGlobal=null;
 	private static String paso;
     
     public static void lanzarPrueba(WebDriver driverGlobal) {

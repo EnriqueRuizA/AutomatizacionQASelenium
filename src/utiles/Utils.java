@@ -22,7 +22,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -34,7 +33,6 @@ import com.itextpdf.layout.element.Paragraph;
 
 import clasesXML.ListXml;
 import clasesXML.RecordXml;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.awt.AWTException;
 import java.awt.Dimension;
@@ -187,7 +185,7 @@ public class Utils {
 	}
 
 	/**
-	 * TODO REVISAR ESTE MÉTODO
+	 * TODO Revisar o eliminar Método campos
 	 * @return
 	 */
     public static HashMap<String, WebElement> campos(){
