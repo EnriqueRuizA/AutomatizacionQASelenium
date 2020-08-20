@@ -1,5 +1,7 @@
 package clasesXML;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 /**
  * Se utiliza con una llamada del tipo:<br>
  * JAXBContext jaxbContext = JAXBContext.newInstance(Tutorials.class); <br>
@@ -11,9 +13,6 @@ package clasesXML;
 import javax.xml.bind.annotation.XmlElement;
 
 import utiles.Const;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class RecordXml {
@@ -92,4 +91,4 @@ public class RecordXml {
 	public void setIp_address(String ip_address) {
 		this.ip_address = ip_address;
 	}
-}  
+}

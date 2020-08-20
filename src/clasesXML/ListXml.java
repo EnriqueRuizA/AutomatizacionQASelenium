@@ -12,25 +12,25 @@ import javax.xml.bind.annotation.XmlAccessorType;
 public class ListXml {
 	
 	@XmlElement(name = "record")
-	private List<RecordXml> ListXml;
+	private List<RecordXml> ListaDeRecords;
 	
 	public ListXml() {}
 	
 	public ListXml(List<RecordXml> ListXml) {  
 	    super();  
-	    this.ListXml = ListXml;  
+	    this.ListaDeRecords = ListXml;  
 	}
 	
 	public List<RecordXml> getListXml() {
-		return ListXml;
+		return ListaDeRecords;
 	}
 	
 	public void setListXml(List<RecordXml> ListXml) {
-		this.ListXml=ListXml;
+		this.ListaDeRecords=ListXml;
 	}
 	
 	public void setUserListXml(RecordXml recordXml) {
-		this.ListXml.add(recordXml);
+		this.ListaDeRecords.add(recordXml);
 	}
 	
 	
