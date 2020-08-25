@@ -114,6 +114,43 @@ public class Utils {
 		spectedResult = null;
 		actualResult = null;
 	}
+	
+	/**
+	 * @return 
+	 * 
+	 */
+	public static int describirPaso(String descripcion, int numPaso) {
+		System.out.println(++numPaso + "......." + descripcion);
+		return numPaso;
+	}
+	/**
+	 * Este método sirve para realizar la acción correspondiente.
+	 * <br>[1] Insertar Dato
+	 * <br>[2] Hacer Click
+	 * 
+	 * @throws InterruptedException 
+	 * @Parameters
+	 */
+	public static void accion(int accion, String valorAInsertar, String contextPath, int miliSegDeEspera, WebDriver driverGlobal) throws InterruptedException {
+		// Establecemos el fullContextPath del boton de búsqueda
+		WebElement elementoWeb= driverGlobal.findElement(By.xpath(contextPath));
+		if(accion==1) {
+			//Se inserta un dato
+			elementoWeb.clear();
+			elementoWeb.sendKeys(valorAInsertar);
+			Thread.sleep(miliSegDeEspera);
+			System.out.println("	Insertando: "+valorAInsertar);
+			
+		}else if(accion==2) {
+			//Se hace click
+			elementoWeb.click();
+			Thread.sleep(miliSegDeEspera);
+			System.out.println("	Se pulsa el elemento.");
+			
+		}else {
+			System.out.println("	No se reconoce la acción");
+		}		
+	}
 
 	/**
 	 * Método para generar una captura de pantalla en jpg con el nombre que se
@@ -133,9 +170,9 @@ public class Utils {
 		// se define el origen de captura horizontal/vertical
 		rectangulo.setLocation((int) rectangulo.getX() + 20, (int) rectangulo.getY() + 70);
 
-		System.out.println("Área de la captura '" + paso + "' comienza en: ");
+		System.out.print("	Área de la captura '" + paso + "' comienza en: ");
 		System.out.println(rectangulo.getLocation());
-		System.out.println("y tiene un tamaño de: ");
+		System.out.print("	y tiene un tamaño de: ");
 		System.out.println(area.getSize());
 
 		BufferedImage captura = new Robot().createScreenCapture(rectangulo);
@@ -188,22 +225,6 @@ public class Utils {
 		return campo_nombre;
 	}
 
-	/**
-	 * TODO Revisar o eliminar Método campos
-	 * 
-	 * @return
-	 */
-	public static HashMap<String, WebElement> campos() {
-		HashMap<String, WebElement> listaDeCampos = new HashMap<String, WebElement>();
-		WebDriver driverGlobal = Utils.probarEn("explorer");
-		// Campo Nombre
-		String xpath_nombre = "/html/body/div[3]/div[4]/div/div/div/form/div/div/div[2]/fieldset/fieldset/div[2]/input";
-		WebElement campo_nombre = driverGlobal.findElement(By.xpath(xpath_nombre));
-		// WebElement campo_nombre= driver.findElement(By.id("formConsulta:name"));
-		listaDeCampos.put("campo_nombre", campo_nombre);
-
-		return listaDeCampos;
-	}
 
 	/**
 	 * 

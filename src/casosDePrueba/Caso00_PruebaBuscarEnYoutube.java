@@ -19,14 +19,17 @@ public class Caso00_PruebaBuscarEnYoutube {
 	private static int numPaso = 0;
 
 	public static void lanzarPrueba(WebDriver driverGlobal) {
-
+		
+		//Se establece la url de la app
 		String baseUrl = Const.URL_YouTube;
 
 		try {
-			// Estableciendo time out de 5 seg
+			
+			// Estableciendo time out de respuesta de la conexión en 5 seg
 			driverGlobal.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 			// Accediendo a la url
 			driverGlobal.get(baseUrl);
+			// Maximizando ventana
 			driverGlobal.manage().window().maximize();
 
 			// Pruebas
@@ -34,43 +37,36 @@ public class Caso00_PruebaBuscarEnYoutube {
 
 			// Se describe el paso
 			paso = "Se introduce texto a buscar";
-			System.out.println(++numPaso + "....." + paso);
-
-			// Definimos el valor a buscar
-			String valorBusqueda = "00001111";
-
-			// Establecemos el fullContextPath del cuadro de búsqueda
-			WebElement campo_busqueda = driverGlobal.findElement(By.xpath(Const.CAMPO_busqueda));
-			campo_busqueda.clear();
-
-			// Se introduce el valor en el campo
-			campo_busqueda.sendKeys(valorBusqueda);
-			// Thread.sleep(1000);
+			numPaso = Utils.describirPaso(paso, numPaso);
+			
+			//Insertando valor
+			Utils.accion(1, "0002222", Const.CAMPO_busqueda, 1000, driverGlobal);
+			Utils.accion(1, "0003333", Const.CAMPO_busqueda, 1000, driverGlobal);
+			Utils.accion(1, "0004444", Const.CAMPO_busqueda, 2000, driverGlobal);
 
 			// Se captura la evidencia
 			Utils.capturarPantalla(casoDePrueba, pasos, paso);
 
 //-----------------------------------------------------------------------------
-
+			
 			// Se describe el paso
 			paso = "Se pulsa buscar";
-			System.out.println(++numPaso + "....." + paso);
-
-			// Establecemos el fullContextPath del boton de búsqueda
-			WebElement boton_busqueda = driverGlobal.findElement(By.xpath(Const.BOTON_buscar));
-
-			// Pulsaos el botón
-			boton_busqueda.click();
-			Thread.sleep(2000);
+			numPaso = Utils.describirPaso(paso, numPaso);
+						
+			// Se realiza la acción
+			Utils.accion(2, null, Const.BOTON_buscar, 2000, driverGlobal);
+			
 			// Se captura la evidencia
 			Utils.capturarPantalla(casoDePrueba, pasos, paso);
 
 //-----------------------------------------------------------------------------
-			// generamos el documeto de evidencias
+			// generamos el documeto de evidencias con todas las capturas y descripciones
 			Utils.generarPDF(casoDePrueba, pasos);
+			
 		} catch (Exception E) {
 			System.out.println("Se ha interrumpido la ejecución");
 			System.out.println(E);
+			
 		} finally {
 			driverGlobal.quit();
 		}
