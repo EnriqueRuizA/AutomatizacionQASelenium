@@ -31,9 +31,15 @@ public class Caso00_PruebaBuscarEnYoutube {
 			driverGlobal.get(baseUrl);
 			// Maximizando ventana
 			driverGlobal.manage().window().maximize();
-
+			
+			
 			// Pruebas
 //-----------------------------------------------------------------------------
+			paso = "Se aceptan las cookies";
+			numPaso = Utils.describirPaso(paso, numPaso);
+			Utils.capturarPantalla(casoDePrueba, pasos, paso);
+			Utils.accion(2, null, Const.BOTON_Cookies, 2000, driverGlobal);
+			//-----------------------------------------------------------------------------
 
 			// Se describe el paso
 			paso = "Se introduce texto a buscar";
@@ -41,9 +47,22 @@ public class Caso00_PruebaBuscarEnYoutube {
 			
 			//Insertando valor
 			Utils.accion(1, "0002222", Const.CAMPO_busqueda, 1000, driverGlobal);
+			// Se captura la evidencia
+			Utils.capturarPantalla(casoDePrueba, pasos, paso);
+			
+			// Se describe el paso
+			paso = "Se introduce texto a buscar2";
+			numPaso = Utils.describirPaso(paso, numPaso);
+			//Insertando valor
 			Utils.accion(1, "0003333", Const.CAMPO_busqueda, 1000, driverGlobal);
+			// Se captura la evidencia
+			Utils.capturarPantalla(casoDePrueba, pasos, paso);
+			
+			// Se describe el paso
+			paso = "Se introduce texto a buscar3";
+			numPaso = Utils.describirPaso(paso, numPaso);
+			//Insertando valor
 			Utils.accion(1, "0004444", Const.CAMPO_busqueda, 2000, driverGlobal);
-
 			// Se captura la evidencia
 			Utils.capturarPantalla(casoDePrueba, pasos, paso);
 

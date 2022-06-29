@@ -23,9 +23,10 @@ public class Const {
 	public final static String DB_ip_address = "ip_address";
 
 	// Configuración: Urls & Xpath campos de la aplicación
+	public final static String BOTON_Cookies = "/html/body/ytd-app/ytd-consent-bump-v2-lightbox/tp-yt-paper-dialog/div[4]/div/div[6]/div[1]/ytd-button-renderer[2]/a/tp-yt-paper-button/yt-formatted-string";
 	public final static String URL_YouTube = "https://www.youtube.com/";
 	public final static String CAMPO_busqueda = "/html/body/ytd-app/div/div/ytd-masthead/div[3]/div[2]/ytd-searchbox/form/div/div[1]/input";
-	public final static String BOTON_buscar = "/html/body/ytd-app/div/div/ytd-masthead/div[3]/div[2]/ytd-searchbox/form/button";
+	public final static String BOTON_buscar = "//*[@id=\"search-icon-legacy\"]";
 
 	// Variables para https://generadordni.es/#profiles
 	public final static String URL_GENERADOR = "https://generadordni.es/#profiles";

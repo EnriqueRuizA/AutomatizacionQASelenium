@@ -28,6 +28,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.opera.OperaDriver;
 
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -39,6 +40,7 @@ import com.itextpdf.layout.element.Paragraph;
 
 import clasesXML.ListXml;
 import clasesXML.RecordXml;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Utils {
 
@@ -92,9 +94,21 @@ public class Utils {
 	 * Este método obtendrá el driver para realizar las pruebas con Chrome
 	 */
 	public static WebDriver probarEnChrome() {
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\drivers\\chromedriver32.exe");
+		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
+		
 		System.out.println("Ejecutando prueba en Chrome");
+		return driver;
+	}
+	
+	/**
+	 * Este método obtendrá el driver para realizar las pruebas con Opera
+	 */
+	public static WebDriver probarEnOpera() {
+		WebDriverManager.operadriver().setup();
+		WebDriver driver = new ChromeDriver();
+		
+		System.out.println("Ejecutando prueba en Opera");
 		return driver;
 	}
 
