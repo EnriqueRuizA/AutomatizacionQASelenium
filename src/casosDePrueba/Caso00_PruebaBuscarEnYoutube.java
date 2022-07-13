@@ -46,7 +46,7 @@ public class Caso00_PruebaBuscarEnYoutube {
 			numPaso = Utils.describirPaso(paso, numPaso);
 			
 			//Insertando valor
-			Utils.accion(1, "0002222", Const.CAMPO_busqueda, 1000, driverGlobal);
+			Utils.accion(1, "0002222", Const.CAMPO_busqueda, 500, driverGlobal);
 			// Se captura la evidencia
 			Utils.capturarPantalla(casoDePrueba, pasos, paso);
 			
@@ -54,7 +54,7 @@ public class Caso00_PruebaBuscarEnYoutube {
 			paso = "Se introduce texto a buscar2";
 			numPaso = Utils.describirPaso(paso, numPaso);
 			//Insertando valor
-			Utils.accion(1, "0003333", Const.CAMPO_busqueda, 1000, driverGlobal);
+			Utils.accion(1, "0003333", Const.CAMPO_busqueda, 500, driverGlobal);
 			// Se captura la evidencia
 			Utils.capturarPantalla(casoDePrueba, pasos, paso);
 			
@@ -62,7 +62,7 @@ public class Caso00_PruebaBuscarEnYoutube {
 			paso = "Se introduce texto a buscar3";
 			numPaso = Utils.describirPaso(paso, numPaso);
 			//Insertando valor
-			Utils.accion(1, "0004444", Const.CAMPO_busqueda, 2000, driverGlobal);
+			Utils.accion(1, "0004444", Const.CAMPO_busqueda, 1000, driverGlobal);
 			// Se captura la evidencia
 			Utils.capturarPantalla(casoDePrueba, pasos, paso);
 

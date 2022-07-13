@@ -35,6 +35,7 @@ import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 
@@ -148,6 +149,7 @@ public class Utils {
 	public static void accion(int accion, String valorAInsertar, String contextPath, int miliSegDeEspera, WebDriver driverGlobal) throws InterruptedException {
 		// Establecemos el fullContextPath del boton de búsqueda
 		WebElement elementoWeb= driverGlobal.findElement(By.xpath(contextPath));
+			
 		if(accion==1) {
 			//Se inserta un dato
 			elementoWeb.clear();
@@ -177,7 +179,7 @@ public class Utils {
 
 		Dimension area = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
 
-		// se define tamaño horizontal/vertical
+		// se define área de la captura horizontal/vertical
 		area.setSize(area.getWidth() - 50, area.getHeight() - 100);
 		Rectangle rectangulo = new Rectangle(area);
 
@@ -214,19 +216,25 @@ public class Utils {
 		PdfWriter writer = new PdfWriter(rutaCaso + "\\" + casoDePrueba + ".pdf");
 		PdfDocument pdf = new PdfDocument(writer);
 		Document doc = new Document(pdf);
+		AreaBreak aBreak = new AreaBreak();
 
-		for (String paso : pasos) {
-
+		for (int i=0 ; i<pasos.size() ; i++) {
 			// Obtenemos la imagen a adjuntar
-			String rutaImg = Const.RUTA_CASOS + casoDePrueba + "-" + paso + ".jpg";
+			String rutaImg = Const.RUTA_CASOS + casoDePrueba + "-" + pasos.get(i) + ".jpg";
 			ImageData paramImg = ImageDataFactory.create(rutaImg);
 			Image image = new Image(paramImg);
 			image.scaleAbsolute(455, 249);
-
-			Paragraph p1 = new Paragraph(paso);
+			//Se añade el texto de la prueba
+			Paragraph p1 = new Paragraph(pasos.get(i));
 			doc.add(p1);
+			//Se añade la evidencia de la prueba
 			Paragraph p2 = new Paragraph().add(image);
 			doc.add(p2);
+			
+			//se añade un salto cada dos pasos
+			if(i%2!=0) {
+				doc.add(aBreak);
+			}	
 		}
 		doc.close();
 	}
